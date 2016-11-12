@@ -75,17 +75,6 @@ class SpamFilter(object):
         self.spamP = math.log(temp)
         self.hamP = math.log(1-temp)
 
-        #for most indicative word calculation
-        total = total_ham + total_spam
-        indicative = {}
-        for word, value in spam_counter.iteritems():
-            if word in ham_counter:
-                temp = ham_counter[word]
-                indicative[word] = math.log((float(value)/total_spam)/(float(value+temp)/total))
-
-        #sort the dictionary
-        self.spam_indicative = sorted(indicative.items(), key=operator.itemgetter(1))
-
     def is_spam(self, email_path):
         content = load_tokens(email_path)
         spamP = self.spamP
@@ -109,19 +98,4 @@ class SpamFilter(object):
                 hamP += (value * self.ham[unknown])
 
         return (spamP > hamP)
-
-    def most_indicative_spam(self, n):
-        result = []
-        for w, d in self.spam_indicative[n*-1:]:
-            result.append(w)
-        result.reverse()
-        return result
-
-
-    def most_indicative_ham(self, n):
-        result = []
-        for w, d in self.spam_indicative[0:n]:
-            result.append(w)
-        return result
-
 
