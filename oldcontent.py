@@ -124,39 +124,4 @@ class SpamFilter(object):
             result.append(w)
         return result
 
-############################################################
-# Section 2: Feedback
-############################################################
 
-
-feedback_question_1 = """
-8 h
-"""
-
-feedback_question_2 = """
-when I try to get the accurate result for the possibilty, it is very hard to duplicate the result in the assignment.
-If the assignment can give a range of possibility that is acceptable, the assignment will be much better
-"""
-
-feedback_question_3 = """
-For a program with huge database, I really hope that there are more test data to debug our program.
-I made the following lines to provide more data for debugging purpose. If the following data is provided in the assignment, it will help the students a lot
-
-code:
-print "words          :\t\tspam\t\tlog\t\t\tindicative\t\tham\t\tlog\t\t\tindicative"
-for w in words:
-    print "%s:\t\t%d\t\t%f\t\t%f\t\t%d\t\t%f\t\t%f" % (w, spam_counter[w], spam[w], indicative_spam[w], ham_counter[w], ham[w], indicative_ham[w])
-
-results:
-words          :		spam		log			indicative		ham		log			indicative
-Aug            :		1		-13.008099		-5.157971		266		-6.801268		1.048871
-ilug@linux.ie  :		6		-11.216348		-3.991569		493		-6.184255		1.040526
-install        :		1		-13.008099		-3.977441		81		-7.990315		1.040353
-spam.          :		1		-13.008099		-3.965171		80		-8.002737		1.040201
-Group:         :		6		-11.216348		-3.952749		474		-6.223557		1.040044
-<a             :		1099		-6.005953		0.428368		1		-12.384754		-5.950442
-<input         :		441		-6.919064		0.427013		1		-12.384754		-5.038687
-<html>         :		283		-7.362662		0.425751		1		-12.384754		-4.596351
-<meta          :		262		-7.439765		0.425468		1		-12.384754		-4.519531
-</head>        :		194		-7.740251		0.424137		1		-12.384754		-4.220376
-"""
